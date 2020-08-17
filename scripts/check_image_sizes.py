@@ -28,7 +28,7 @@ def preprocess(medical_image: pydicom.FileDataset) -> np.ndarray:
 
 
 def show_dir_images(path):
-    fig, ax = plt.subplots(nrows=5, ncols=5)
+    fig, ax = plt.subplots(nrows=6, ncols=5)
     plt.style.use("grayscale")
     for i, patient in enumerate(os.listdir(path)):
         patient_path = os.path.join(path, patient)
@@ -38,7 +38,7 @@ def show_dir_images(path):
             ax[i // 5][i % 5].imshow(preprocess(sample_file), cmap=plt.cm.jet)
         except RuntimeError:
             print(f"Failed to load image for patient {patient}")
-        if i >= 24:
+        if i >= 29:
             break
     plt.show()
 
